@@ -9,6 +9,13 @@ COPY Manhattan-Network/ /app/
 # Install dependencies
 RUN pip install --no-cache-dir torch
 
+# Run base: not demo
+CMD python initialization.py && \
+    python equations.py && \
+    python intersections.py && \
+    python neural.py && \
+    python manhattan_algorithm.py && \
+
 # Define the execution sequence for the NO-K pipeline
 CMD python demo/token_define.py && \
     python demo/generate_equations.py && \
